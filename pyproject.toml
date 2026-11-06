@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "septum"
+version = "0.0.1.dev0"
+description = "Agent leak firewall: stops an AI agent carrying a private fact from one site to another unless the user's task asks for it."
+requires-python = ">=3.11"
+authors = [{ name = "Khubaib Nazeer" }]
+keywords = ["ai-agents", "privacy", "security", "browser-automation", "mcp", "firewall"]
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Security",
+]
+# Runtime dependencies are added with the features that need them
+# (Textual for the TUI, an MCP SDK for the proxy, Playwright for guard()).
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+septum = "septum.cli:main"
+
+[project.urls]
+Repository = "https://github.com/zernivo/Spectum"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/septum"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
