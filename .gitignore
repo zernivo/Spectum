@@ -1,0 +1,44 @@
+# --- Septum ---------------------------------------------------------------
+# Videos never go into git history. They live on the v0.0 "design" release.
+*.mp4
+*.mov
+*.webm
+*.mkv
+
+# Local Septum state (chambers, ledger, policy under test). Never commit it:
+# it can hold real user facts.
+.septum/
+*.ledger.jsonl
+*.chambers.db
+
+# Benchmark runs (AgentTell results, traces, screenshots)
+results/
+third_party/AgentTell/
+.env
+.env.*
+!.env.example
+
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# --- Editors and OS --------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
